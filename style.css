@@ -1,0 +1,66 @@
+/* Основной фон и текст */
+QMainWindow, QWidget {
+    background-color: #2E2E2E; /* Тёмно-серый фон */
+    color: #FFFFFF; /* Белый текст */
+}
+
+/* Боковая панель (QListWidget) */
+QListWidget {
+    background-color: #252526; /* Чуть темнее для панели */
+    color: #D4D4D4; /* Светло-серый текст */
+    border: none;
+}
+
+QListWidget::item {
+    padding: 10px;
+}
+
+QListWidget::item:selected {
+    background-color: #007ACC; /* Синий для выбранного пункта */
+    color: #FFFFFF;
+}
+
+/* Кнопки */
+QPushButton {
+    background-color: #3C3C3C; /* Тёмный фон кнопок */
+    color: #FFFFFF;
+    border: 1px solid #555555;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+QPushButton:hover {
+    background-color: #007ACC; /* Синий при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #005F99; /* Темнее при нажатии */
+}
+
+/* QStackedWidget (страницы) */
+QStackedWidget {
+    background-color: #1E1E1E; /* Очень тёмный фон для страниц */
+}
+
+/* Заголовок (QLabel в title_frame) */
+QLabel#title_label {
+    color: #D4D4D4; /* Светло-серый текст */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Статус-бар */
+QStatusBar {
+    background-color: #252526;
+    color: #D4D4D4;
+}
+
+/* Меню-бар */
+QMenuBar {
+    background-color: #252526;
+    color: #D4D4D4;
+}
+
+QMenuBar::item:selected {
+    background-color: #007ACC;
+}

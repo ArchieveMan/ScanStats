@@ -39,11 +39,11 @@ class MainWindow(QMainWindow):
 
         self.menu_list = [
             {
-                "name": "Отсканировать новый микрорайон",
+                "name": "Отсканировать новый регион",
                 "icon": "./icon/plagiarism.png"
             },
             {
-                "name": "Показать Дом",
+                "name": "Показать статистику домов",
                 "icon": "./icon/house.png"
             },
             {
@@ -112,7 +112,7 @@ class MainWindow(QMainWindow):
 def gui_launch():   
     app = QApplication(sys.argv)
     
-    with open("style.css") as f:
+    with open("./CSS/style.css") as f:
         style_str = f.read()
 
     app.setStyleSheet(style_str)

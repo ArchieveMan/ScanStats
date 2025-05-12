@@ -1,12 +1,14 @@
 from pathlib import Path 
 import sys
-from modules.build_stats import process_district
+from modules.region_parser import process_district
 from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QListWidgetItem, QWidget, QGridLayout 
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtGui import QIcon, QFont 
 
 from GUI.gui import Ui_MainWindow
 from GUI.house_stats_gui import Ui_Form
+from GUI.region_parser_gui import Region_parser
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -102,9 +104,11 @@ class MainWindow(QMainWindow):
             self.main_content.removeWidget(widget)
 
         for index, menu in enumerate(self.menu_list):
-            if menu.get("name") == "Показать статистику домов":
+            if menu.get("name") == "Показать статистику домов" :
             # Подключаем форму из house_stats_gui.py
                 new_page = HouseStatsWidget()
+            elif menu.get("name") == "Отсканировать новый регион":
+                new_page = RegionParserWidget()
             else:
             # Заглушка для остальных
                 layout = QGridLayout()
@@ -124,6 +128,13 @@ class HouseStatsWidget(QWidget):
         super().__init__(parent)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+
+class RegionParserWidget(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Region_parser()
+        self.ui.setupUi(self)
+
 
 def gui_launch():   
     app = QApplication(sys.argv)

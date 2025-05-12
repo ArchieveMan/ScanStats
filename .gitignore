@@ -4,7 +4,8 @@ data/*
 
 # Игнорировать папки __pycache__
 __pycache__/
-
+GUI/__pycache__/
+modules/__pycache__/
 # Дополнительно: игнорировать другие временные файлы Python
 *.pyc
 *.pyo

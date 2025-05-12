@@ -33,4 +33,3 @@ def process_district(path: Path, name: str):
     out.write_text(re.sub(r'\[\s+([^][]*?)\s+\]', lambda m: '[' + ' '.join(m.group(1).split()) + ']', text), encoding="utf-8")
     print(f"✅ JSON сохранён: {out}")
 
-# process_district(Path(input("Введите путь к папке микрорайона: ").strip()), input("Введите имя JSON-файла (без _stats.json): ").strip())

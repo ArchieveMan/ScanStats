@@ -6,6 +6,7 @@ from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtGui import QIcon, QFont 
 
 from gui import Ui_MainWindow
+from house_stats_gui import Ui_Form
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -45,6 +46,10 @@ class MainWindow(QMainWindow):
             {
                 "name": "Показать статистику домов",
                 "icon": "./icon/house.png"
+            },
+            {
+                "name": "Посмотреть сколько отсканировано",
+                "icon": "./icon/scan_count.png"
             },
             {
                 "name": "Дополнительная информация",
@@ -96,18 +101,30 @@ class MainWindow(QMainWindow):
         for widget in widget_list:
             self.main_content.removeWidget(widget)
 
-        for menu in self.menu_list:
-            text = menu.get("name")
-            layout = QGridLayout()
-            label = QLabel(text=text)
-            label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-            font = QFont()
-            font.setPixelSize(20)
-            label.setFont(font)
-            layout.addWidget(label)
-            new_page = QWidget()
-            new_page.setLayout(layout)
+        for index, menu in enumerate(self.menu_list):
+            if menu.get("name") == "Показать статистику домов":
+            # Подключаем форму из house_stats_gui.py
+                new_page = HouseStatsWidget()
+            else:
+            # Заглушка для остальных
+                layout = QGridLayout()
+                label = QLabel(text=menu.get("name"))
+                label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+                font = QFont()
+                font.setPixelSize(20)
+                label.setFont(font)
+                layout.addWidget(label)
+                new_page = QWidget()
+                new_page.setLayout(layout)
+        
             self.main_content.addWidget(new_page)
+
+
+class HouseStatsWidget(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_Form()
+        self.ui.setupUi(self)
 
 def gui_launch():   
     app = QApplication(sys.argv)

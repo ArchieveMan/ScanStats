@@ -1,6 +1,6 @@
 from pathlib import Path
 import re, json, sys
-from config import BASE_DIR 
+from modules.config import BASE_DIR 
 
 def extract_flat_number(fn): 
     return int(m.group(1) or m.group(2)) if (m := re.search(r'(\d{1,3})кв|кв(\d{1,3})', fn.lower())) else None

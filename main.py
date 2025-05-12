@@ -1,12 +1,12 @@
 from pathlib import Path 
 import sys
-from build_stats import process_district
+from modules.build_stats import process_district
 from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QListWidgetItem, QWidget, QGridLayout 
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtGui import QIcon, QFont 
 
-from gui import Ui_MainWindow
-from house_stats_gui import Ui_Form
+from GUI.gui import Ui_MainWindow
+from GUI.house_stats_gui import Ui_Form
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -118,7 +118,6 @@ class MainWindow(QMainWindow):
                 new_page.setLayout(layout)
         
             self.main_content.addWidget(new_page)
-
 
 class HouseStatsWidget(QWidget):
     def __init__(self, parent=None):
